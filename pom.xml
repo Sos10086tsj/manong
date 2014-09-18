@@ -6,7 +6,25 @@
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
   <name>tour Maven Webapp</name>
-  <url>http://maven.apache.org</url>
+  <!-- <url>http://maven.apache.org</url> -->
+  
+  <profiles>
+  	<profile>
+  		<id>localhost</id>
+  		<activation>
+				<activeByDefault>true</activeByDefault>
+		</activation>
+  		<properties>
+  			<datasource.url>jdbc:mysql://localhost:3306/tour?characterEncoding=UTF-8</datasource.url>
+  			<datasource.username>root</datasource.username>
+  			<datasource.password>Password2</datasource.password>
+  			<datasource.initialSize>10</datasource.initialSize>
+  			<datasource.maxActive>60000</datasource.maxActive>
+  			<datasource.maxIdle>20</datasource.maxIdle>
+  			<datasource.minIdle>5</datasource.minIdle>
+  		</properties>
+  	</profile>
+  </profiles>
   
   <properties>
   	<jstl.version>1.2</jstl.version>
@@ -271,6 +289,12 @@
   
   <build>
     <finalName>tour</finalName>
+    <resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+	</resources>
     <plugins>
 		<plugin>
 			<groupId>org.apache.maven.plugins</groupId>
