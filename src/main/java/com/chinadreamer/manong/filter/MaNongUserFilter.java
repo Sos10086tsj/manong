@@ -1,4 +1,4 @@
-package com.chinadreamer.gameInfo.filter;
+package com.chinadreamer.manong.filter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.web.filter.authc.UserFilter;
 
-public class GameInfoUserFilter extends UserFilter{
+public class MaNongUserFilter extends UserFilter{
 	private String defaultSuccessUrl;
 
     public String getDefaultSuccessUrl() {

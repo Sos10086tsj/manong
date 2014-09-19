@@ -1,4 +1,4 @@
-package com.chinadreamer.gameInfo.filter;
+package com.chinadreamer.manong.filter;
 
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -14,8 +14,8 @@ import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
 
-public class GameInfoFormAuthenticationFilter extends FormAuthenticationFilter{
-	private static final Logger LOGGER =  Logger.getLogger(GameInfoFormAuthenticationFilter.class);
+public class MaNongFormAuthenticationFilter extends FormAuthenticationFilter{
+	private static final Logger LOGGER =  Logger.getLogger(MaNongFormAuthenticationFilter.class);
 	/* 
      *  主要是针对登入成功的处理方法。对于请求头是AJAX的之间返回JSON字符串。 
      */  

@@ -29,11 +29,11 @@
         <property name="minIdle" value="${datasource.minIdle}"/>
 	</bean>
 	
-	<!-- JPA实体管理工厂的配置 ，所有包都在gameInfo 项目下-->  
+	<!-- JPA实体管理工厂的配置 ，所有包都在manong 项目下-->  
 	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource"/>
 		<property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>  
-		<property name="packagesToScan" value="com.chinadreamer.gameInfo.**.entity"/><!--待扫描的实体类包，不再需要persistence.xml了-->
+		<property name="packagesToScan" value="com.chinadreamer.manong.**.entity"/><!--待扫描的实体类包，不再需要persistence.xml了-->
 		<property name="jpaProperties">
 			<props>
 				<prop key="hibernate.connection.useUnicode">true</prop>
@@ -54,7 +54,7 @@
 		<property name="entityManagerFactory" ref="entityManagerFactory"/>   
 	</bean>
 	<!-- Spring Data Jpa配置 --> 
-	 <jpa:repositories base-package="com.chinadreamer.gameInfo.**.repository"  
+	 <jpa:repositories base-package="com.chinadreamer.manong.**.repository"  
 	 transaction-manager-ref="transactionManager" 
 	 entity-manager-factory-ref="entityManagerFactory"/>
 	 
@@ -77,7 +77,7 @@
     </tx:advice> 
     <aop:config expose-proxy="true" proxy-target-class="true">
         <!-- 事务开在servier层 -->
-        <aop:pointcut id="txPointcut" expression="execution(* com.chinadreamer.gameInfo..service..*.*(..))"/>
+        <aop:pointcut id="txPointcut" expression="execution(* com.chinadreamer.manong..service..*.*(..))"/>
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
     

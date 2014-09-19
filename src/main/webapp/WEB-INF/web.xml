@@ -73,6 +73,6 @@
   </filter-mapping>
   <filter>
     <filter-name>ajaxTimeoutFilter</filter-name>
-    <filter-class>com.chinadreamer.gameInfo.filter.AjaxTimeoutFilter</filter-class>
+    <filter-class>com.chinadreamer.manong.filter.AjaxTimeoutFilter</filter-class>
   </filter>
 </web-app>

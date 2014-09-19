@@ -1,4 +1,4 @@
-package com.chinadreamer.gameInfo.filter;
+package com.chinadreamer.manong.filter;
 
 import java.io.IOException;
 
