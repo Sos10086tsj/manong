@@ -1,4 +1,4 @@
-package com.chinadreamer.tour.filter;
+package com.chinadreamer.gameInfo.filter;
 
 import java.io.IOException;
 

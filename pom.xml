@@ -2,10 +2,10 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>chinese.dreamer</groupId>
-  <artifactId>tour</artifactId>
+  <artifactId>gameInfo</artifactId>
   <packaging>war</packaging>
   <version>0.0.1-SNAPSHOT</version>
-  <name>tour Maven Webapp</name>
+  <name>Game Info Maven Webapp</name>
   <!-- <url>http://maven.apache.org</url> -->
   
   <profiles>
@@ -15,7 +15,7 @@
 				<activeByDefault>true</activeByDefault>
 		</activation>
   		<properties>
-  			<datasource.url>jdbc:mysql://localhost:3306/tour?characterEncoding=UTF-8</datasource.url>
+  			<datasource.url>jdbc:mysql://localhost:3306/gameInfo?characterEncoding=UTF-8</datasource.url>
   			<datasource.username>root</datasource.username>
   			<datasource.password>Password2</datasource.password>
   			<datasource.initialSize>10</datasource.initialSize>
@@ -288,7 +288,7 @@
   </dependencies>
   
   <build>
-    <finalName>tour</finalName>
+    <finalName>gameInfo</finalName>
     <resources>
 			<resource>
 				<directory>src/main/resources</directory>

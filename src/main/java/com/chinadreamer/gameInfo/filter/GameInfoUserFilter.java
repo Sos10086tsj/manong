@@ -1,4 +1,4 @@
-package com.chinadreamer.tour.filter;
+package com.chinadreamer.gameInfo.filter;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.web.filter.authc.UserFilter;
 
-public class TourUserFilter extends UserFilter{
+public class GameInfoUserFilter extends UserFilter{
 	private String defaultSuccessUrl;
 
     public String getDefaultSuccessUrl() {
