@@ -4,21 +4,16 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>码农——登录</title>
 </head>
 <body>
 	<div>
-		<div>
-			<label>用户名</label>
-			<input type="text" value=""/>
-		</div>
-		<div>
-			<label>密码</label>
-			<input type="password" value=""/>
-		</div>
-		<div>
-			<button>登录</button>
-		</div>
+		<form method="post">
+			<input type="text" name="username"/> <br/>
+			<input type="password" name="password"/>
+   			<input type="checkbox" name="rememberMe" value="true"/>
+   			<button type="submit">登录</button>
+		</form>
 	</div>
 </body>
 </html>

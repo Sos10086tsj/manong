@@ -15,6 +15,13 @@
           http://www.springframework.org/schema/task 
           http://www.springframework.org/schema/task/spring-task-3.1.xsd   
           ">
+      
+    <context:component-scan base-package="com.chinadreamer.manong.*">
+			<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
+	</context:component-scan>
+	<context:annotation-config /> 
+    
 	<!-- data source -->
 	<bean class="org.apache.commons.dbcp.BasicDataSource" 
 		destroy-method="close"
@@ -81,6 +88,5 @@
         <aop:advisor id="txAdvisor" advice-ref="txAdvice" pointcut-ref="txPointcut"/>
     </aop:config>
     
-    <!-- 引入shiro配置 -->
     <import resource="shiro-config.xml"/>
 </beans>          

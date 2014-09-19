@@ -22,11 +22,11 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
     	</property>
     	<property name="filterChainDefinitions">
     		<value>
-    			/comp/** = anon
+    			<!-- /comp/** = anon
     			/pages/** = anon
-    			/resources/** = anon
     			/view/** = anon
-    			/demo/** = anon
+    			/demo/** = anon -->
+    			/resources/** = anon
     			/** = authc
     		</value>
     	</property>

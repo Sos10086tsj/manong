@@ -20,10 +20,7 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
 	<mvc:annotation-driven />
 	
 	<!-- 静态资源映射 -->
-    <mvc:resources mapping="/comp/**" location="/WEB-INF/comp/"/>
-    <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
     <mvc:resources mapping="/resources/**" location="/WEB-INF/resources/"/>
-    <mvc:resources mapping="/view/**" location="/WEB-INF/view/"/>
     
     <!-- Multipart file upload -->
     <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
@@ -37,4 +34,6 @@ http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
         	<ref bean="entityManagerFactory"/>      
     	</property>      
 	</bean>  
+	
+	
 </beans>
