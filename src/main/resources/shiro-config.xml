@@ -12,9 +12,9 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 	<!-- 过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
 		<property name="securityManager" ref="securityManager"/>
-		<property name="loginUrl" value="/login.html"/>
-    	<property name="successUrl" value="/index.html"/>
-    	<property name="unauthorizedUrl" value="/unauthorized.html"/>
+		<property name="loginUrl" value="/login.jsp"/>
+    	<property name="successUrl" value="/index.jsp"/>
+    	<property name="unauthorizedUrl" value="/unauthorized.jsp"/>
     	<property name="filters">
         	<util:map>
             	<entry key="authc" value-ref="formAuthenticationFilter"/>
@@ -41,7 +41,7 @@ http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
 		<property name="arguments" ref="securityManager" />
 	</bean>
 	<bean id="userAuthenticationFilter" class="com.chinadreamer.manong.filter.MaNongUserFilter">
-        <property name="defaultSuccessUrl" value="/index.html"/>
+        <property name="defaultSuccessUrl" value="/index.jsp"/>
     </bean>
     <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
 	<bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
