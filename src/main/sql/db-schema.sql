@@ -13,3 +13,17 @@ CREATE TABLE `sys_user` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 INSERT INTO `sys_user` (`id`,`version`,`username`,`password`,`name`,`status`) VALUES (1,0,'test','098f6bcd4621d373cade4e832627b4f6','test','ACTIVE');
+
+--20140920
+--资源表
+CREATE TABLE `sys_resource` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `code` varchar(45) DEFAULT NULL,
+  `name` varchar(45) CHARACTER SET utf8 DEFAULT NULL,
+  `url` varchar(200) DEFAULT NULL,
+  `hierarchy` int(11) DEFAULT NULL,
+  `sub_hierarchy` int(11) DEFAULT NULL,
+  `show` tinyint(1) DEFAULT NULL,
+  `version` bigint(20) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
