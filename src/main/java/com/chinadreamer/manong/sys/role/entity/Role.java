@@ -1,7 +1,11 @@
 package com.chinadreamer.manong.sys.role.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -26,4 +30,7 @@ public @Getter @Setter class Role extends BaseEntity<Long>{
 	
 	@Column(name = "is_system",columnDefinition = "TINYINT(1)")
 	private Boolean isSystem;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy= "role")
+	private List<RoleAuthMapping> roleAuths;
 }

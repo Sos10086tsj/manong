@@ -1,9 +1,13 @@
 package com.chinadreamer.manong.user.entity;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import lombok.Getter;
@@ -43,4 +47,7 @@ public @Getter @Setter class User extends BaseEntity<Long>{
 	@Column(name = "status")
 	@Enumerated(EnumType.STRING)
 	private UserStatus status;
+	
+	@OneToMany(fetch = FetchType.LAZY,mappedBy = "user")
+	private List<UserRoleMapping> userRoles;
 }
