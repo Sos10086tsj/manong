@@ -76,4 +76,8 @@
     <filter-name>ajaxTimeoutFilter</filter-name>
     <filter-class>com.chinadreamer.manong.filter.AjaxTimeoutFilter</filter-class>
   </filter>
+  
+  <welcome-file-list>
+		<welcome-file>login</welcome-file>
+	</welcome-file-list>
 </web-app>

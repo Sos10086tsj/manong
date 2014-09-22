@@ -5,18 +5,14 @@ import javax.servlet.ServletResponse;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import org.apache.shiro.web.filter.authc.UserFilter;
 
 public class MaNongUserFilter extends UserFilter{
-	private String defaultSuccessUrl;
+	private @Getter @Setter String defaultSuccessUrl;
 
-    public String getDefaultSuccessUrl() {
-        return defaultSuccessUrl;
-    }
-
-    public void setDefaultSuccessUrl(String defaultSuccessUrl) {
-        this.defaultSuccessUrl = defaultSuccessUrl;
-    }
 
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         HttpServletRequest httpRequest = (HttpServletRequest)request;
