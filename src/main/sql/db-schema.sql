@@ -121,3 +121,27 @@ CREATE TABLE `user_role_mapping` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 INSERT INTO `user_role_mapping` (`id`,`username`,`role_code`,`version`) VALUES (1,'test','USER',0);
 
+--20140922
+CREATE TABLE `info_tougao` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `title` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `content` text CHARACTER SET utf8,
+  `category` bigint(20) DEFAULT NULL,
+  `type` bigint(20) DEFAULT NULL,
+  `source_url` varchar(2000) CHARACTER SET utf8 DEFAULT NULL,
+  `create_user` varchar(45) DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  `version` bigint(20) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `info_list` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `tougao_id` bigint(20) DEFAULT NULL,
+  `hits` bigint(20) DEFAULT '0',
+  `top` tinyint(1) DEFAULT NULL,
+  `accept_user` bigint(20) DEFAULT NULL,
+  `accept_date` datetime DEFAULT NULL,
+  `version` bigint(20) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
