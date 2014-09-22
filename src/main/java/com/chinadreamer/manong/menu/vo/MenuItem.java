@@ -7,6 +7,7 @@ import lombok.Setter;
 
 public @Getter @Setter class MenuItem {
 	private String code;
+	private String parentCode;
 	private String name;
 	private String url;
 	private Integer hierarchy;

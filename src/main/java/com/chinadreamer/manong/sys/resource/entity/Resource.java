@@ -35,4 +35,7 @@ public @Getter @Setter class Resource extends BaseEntity<Long>{
 	
 	@Column(name = "show",columnDefinition = "TINYINT(1)")
 	private Boolean show = Boolean.TRUE;
+	
+	@Column(name = "parent_code")
+	private String parentCode;
 }

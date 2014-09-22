@@ -26,7 +26,7 @@ CREATE TABLE `sys_resource` (
   `show` tinyint(1) DEFAULT NULL,
   `version` bigint(20) DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB  AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 INSERT INTO `sys_resource` (`id`,`code`,`name`,`url`,`hierarchy`,`sub_hierarchy`,`show`,`version`) VALUES (1,'HOME','首页','/home',1,NULL,1,0);
 INSERT INTO `sys_resource` (`id`,`code`,`name`,`url`,`hierarchy`,`sub_hierarchy`,`show`,`version`) VALUES (2,'IT_INFO','互联网资讯','/itInfo',1,NULL,1,0);
 INSERT INTO `sys_resource` (`id`,`code`,`name`,`url`,`hierarchy`,`sub_hierarchy`,`show`,`version`) VALUES (3,'IT_INFO_LIST','互联网资讯列表','/itInfo/list',2,1,1,0);
