@@ -8,7 +8,7 @@
 				<ul>
 					<c:forEach items="${menuItems }" var="menuItem">
 						<li class="" _t_nav="${menuItem.code}">
-							<h2><a href="${menuItem.url}">${menuItem.name}</a></h2>
+							<h2><a href="${menuItem.url}" target="mainFrame">${menuItem.name}</a></h2>
 						</li>
 					</c:forEach>
 				</ul>
@@ -21,7 +21,7 @@
 				<div class="navigation-down-inner">
 					<c:forEach items="${ menuItem.childItems}" var="childItem" varStatus="index">
 						<dd>
-							<a hotrep="hp.header.product.compute${index.index }" href="${childItem.url}">${childItem.name }</a>
+							<a hotrep="hp.header.product.compute${index.index }" target="mainFrame" href="${childItem.url}">${childItem.name }</a>
 						</dd>
 					</c:forEach>
 				</div>
