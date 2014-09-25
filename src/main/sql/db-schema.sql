@@ -136,21 +136,21 @@ INSERT INTO `info_tougao` (`id`,`title`,`content`,`category`,`type`,`source_url`
 INSERT INTO `info_tougao` (`id`,`title`,`content`,`category`,`type`,`source_url`,`create_user`,`create_time`,`accepted`,`version`) VALUES (4,'fda','fda','INFO','ORIGIN','fda','test','2014-09-25 09:47:54',1,1);
 
 DROP TABLE IF EXISTS info_list;
-CREATE TABLE `info_list` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `tougao_id` bigint(20) DEFAULT NULL,
-  `hits` bigint(20) DEFAULT '0',
-  `top` tinyint(1) DEFAULT NULL,
-  `accept_user` varchar(45) DEFAULT NULL,
-  `accept_date` datetime DEFAULT NULL,
-  `version` bigint(20) DEFAULT '0',
-  PRIMARY KEY (`id`),
-  KEY `FK_er7yd3e32mjoe9yfw3exthvtt` (`accept_user`),
-  KEY `FK_31hr6py70xjl5agqc58i02uqs` (`tougao_id`),
-  CONSTRAINT `FK_31hr6py70xjl5agqc58i02uqs` FOREIGN KEY (`tougao_id`) REFERENCES `info_tougao` (`id`),
-  CONSTRAINT `FK_er7yd3e32mjoe9yfw3exthvtt` FOREIGN KEY (`accept_user`) REFERENCES `sys_user` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
-INSERT INTO `info_list` (`id`,`tougao_id`,`hits`,`top`,`accept_user`,`accept_date`,`version`) VALUES (2,4,0,0,'test','2014-09-25 09:51:00',0);
-INSERT INTO `info_list` (`id`,`tougao_id`,`hits`,`top`,`accept_user`,`accept_date`,`version`) VALUES (4,2,0,0,'test','2014-09-25 09:56:51',0);
 
 delete FROM manong.sys_resource where code = 'CELEBRITY_LIST';
+delete from manong.auth_res_oper_mapping where resource_code = 'CELEBRITY_LIST';
+
+DROP TABLE IF EXISTS celebrity_tougao;
+CREATE TABLE `celebrity_tougao` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `honor_title` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `name` varchar(200) CHARACTER SET utf8 DEFAULT NULL,
+  `profile` varchar(2000) CHARACTER SET utf8 DEFAULT NULL,
+  `zhuanji` text CHARACTER SET utf8,
+  `resource_url` text CHARACTER SET utf8,
+  `accepted` tinyint(1) DEFAULT '0',
+  `create_date` datetime DEFAULT NULL,
+  `version` bigint(20) DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+INSERT INTO `celebrity_tougao` (`id`,`honor_title`,`name`,`profile`,`zhuanji`,`resource_url`,`accepted`,`create_date`,`version`) VALUES (1,'传奇','传奇传奇','传奇传奇传奇传奇传奇传奇','传奇传奇传奇传奇传奇传奇传奇传奇','www.baidu.com',0,'2014-09-25 16:29:47',0);
