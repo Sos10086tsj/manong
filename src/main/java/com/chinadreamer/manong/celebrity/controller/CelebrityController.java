@@ -16,12 +16,6 @@ public class CelebrityController {
 		return "celebrity/celebrity";
 	}
 	
-	@RequestMapping(value = "list", method = RequestMethod.GET)
-	public String getCelebrityList(Model model,HttpServletRequest request){
-		model.addAttribute("info", "新闻");
-		return "celebrity/list";
-	}
-	
 	@RequestMapping(value = "recruit", method = RequestMethod.GET)
 	public String recruitCelebrity(Model model,HttpServletRequest request){
 		model.addAttribute("info", "新闻");
