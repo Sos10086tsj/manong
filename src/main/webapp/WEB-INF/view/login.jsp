@@ -4,16 +4,22 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="../resources/css/login.css" />
 <title>码农——登录</title>
 </head>
 <body>
+	<div class = "company_logo"><img src="../resources/images/company_logo.png"></div>
 	<div>
-		<form method="post">
-			<input type="text" name="username"/> <br/>
-			<input type="password" name="password"/>
-   			<input type="checkbox" name="rememberMe" value="true"/>
-   			<button type="submit">登录</button>
-		</form>
+		<div class = "website_logo float_left login"><img src="../resources/images/website-logo.png"></div>
+		<div>
+			<form class="float_left" method="post">
+				<input type="text" name="username"/> <br/>
+				<input type="password" name="password"/>
+   				<input type="checkbox" name="rememberMe" value="true"/>
+   				<button type="submit">登录</button>
+			</form>
+		</div>
 	</div>
+	
 </body>
 </html>
