@@ -7,19 +7,34 @@
 <link rel="stylesheet" type="text/css" href="../resources/css/login.css" />
 <title>码农——登录</title>
 </head>
-<body>
-	<div class = "company_logo"><img src="../resources/images/company_logo.png"></div>
-	<div>
-		<div class = "website_logo float_left login"><img src="../resources/images/website-logo.png"></div>
+<body class="body">
+	<div class="main">
+		<div class = "company_logo"><img src="../resources/images/company_logo.png"></div>
 		<div>
-			<form class="float_left" method="post">
-				<input type="text" name="username"/> <br/>
-				<input type="password" name="password"/>
-   				<input type="checkbox" name="rememberMe" value="true"/>
-   				<button type="submit">登录</button>
-			</form>
+			<div class = "website_logo float_left"><img src="../resources/images/website-logo.png"></div>
+			<div class="login float_left">
+				<form  method="post">
+					<div>
+						<div><label class="float_left lable">用户名</label> </div>
+						<div><input type="text" name="username"/></div>
+					</div>
+					<div style="margin-top:10px;">
+						<div><label class="float_left lable">密&nbsp;&nbsp;码</label></div>
+						<div><input type="password" name="password"/></div>
+					</div>
+					<div style="margin-top:10px;" >
+						<button class="login_btn white button" type="submit">登录</button>
+					</div>
+				</form>
+			</div>
+		</div>
+		<div class="info">
+			<div><label class="float_left">更多信息请关注&nbsp;</label> </div>
+			<div><a href="https://github.com/Sos10086tsj/manong" target="_blank">Paris Tao</a></div>
 		</div>
 	</div>
+	
+	
 	
 </body>
 </html>
