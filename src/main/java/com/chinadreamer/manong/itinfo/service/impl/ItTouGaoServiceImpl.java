@@ -1,11 +1,14 @@
 package com.chinadreamer.manong.itinfo.service.impl;
 
+import java.util.Date;
+
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.chinadreamer.manong.common.ShiroUtils;
@@ -35,14 +38,15 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 
 	@Override
 	public Page<ItTougao> getNewTougaos(int pageNum, int pageSize) {
-		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
-		return this.repository.findByAcceptedFalse(new PageRequest(pageNum, pageSize));
+		return this.repository.findByAcceptedFalse(this.generatePageable(pageNum, pageSize));
 	}
 
 	@Override
 	public void acceptTougao(Long id) {
 		ItTougao itTougao = this.repository.findOne(id);
 		itTougao.setAccepted(true);
+		itTougao.setAcceptDate(new Date());
+		itTougao.setAcceptUsername(ShiroUtils.getUser().getUsername());
 		this.repository.save(itTougao);
 	}
 
@@ -50,13 +54,24 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 	public void cancelAcceptTougao(Long id) {
 		ItTougao itTougao = this.repository.findOne(id);
 		itTougao.setAccepted(Boolean.FALSE);
+		itTougao.setAcceptDate(null);
+		itTougao.setAcceptUsername(null);
 		this.repository.save(itTougao);
 	}
 
 	@Override
 	public Page<ItTougao> getAcceptedTougaos(int pageNum, int pageSize) {
-		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
-		return this.repository.findByAcceptedTrue(new PageRequest(pageNum, pageSize));
+		return this.repository.findByAcceptedTrue(this.generatePageable(pageNum, pageSize));
 	}
 
+	@Override
+	public Page<ItTougao> getAcceptTougaosOrderByAcceptDate(int pageNum,
+			int pageSize) {
+		return this.repository.findByAcceptedTrueOrderByAcceptDateAsc(this.generatePageable(pageNum, pageSize));
+	}
+
+	private Pageable generatePageable(int pageNum, int pageSize){
+		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
+		return new PageRequest(pageNum, pageSize);
+	}
 }

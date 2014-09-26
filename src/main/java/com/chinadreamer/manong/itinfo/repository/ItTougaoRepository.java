@@ -10,4 +10,5 @@ import com.chinadreamer.manong.itinfo.entity.ItTougao;
 public interface ItTougaoRepository extends JpaRepository<ItTougao, Long>, PagingAndSortingRepository<ItTougao, Long>{
 	public Page<ItTougao> findByAcceptedFalse(Pageable pageable);
 	public Page<ItTougao> findByAcceptedTrue(Pageable pageable);
+	public Page<ItTougao> findByAcceptedTrueOrderByAcceptDateAsc(Pageable pageable);
 }

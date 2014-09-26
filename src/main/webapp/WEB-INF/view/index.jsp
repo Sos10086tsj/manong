@@ -15,7 +15,6 @@
 
 </head>
 <body>
-	<!-- <div><img alt="" src="/resources/images/company_logo.png"> </div> -->
 	<manong:menu></manong:menu>
 	<div><iframe name="mainFrame" id="mainFrame" width="100%" height="100%"
 	 frameborder="0" scrolling="no" src="home"></iframe></div>

@@ -45,4 +45,12 @@ public interface ItTouGaoService {
 	 * @param id
 	 */
 	public void cancelAcceptTougao(Long id);
+	
+	/**
+	 * 获得最新的投稿
+	 * @param pageNum
+	 * @param pageSize
+	 * @return
+	 */
+	public Page<ItTougao> getAcceptTougaosOrderByAcceptDate(int pageNum, int pageSize);
 }

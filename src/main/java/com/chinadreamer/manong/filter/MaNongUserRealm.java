@@ -32,8 +32,9 @@ public class MaNongUserRealm extends AuthorizingRealm{
 	protected AuthorizationInfo doGetAuthorizationInfo(
 			PrincipalCollection principals) {
 		SimpleAuthorizationInfo authorizationInfo = new SimpleAuthorizationInfo();
+		//authorizationInfo.setStringPermissions(stringPermissions);
       
-      return authorizationInfo;
+		return authorizationInfo;
 	}
 
 	@Override

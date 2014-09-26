@@ -60,4 +60,11 @@ public @Getter @Setter class ItTougao extends BaseEntity<Long>{
 	
 	@Column(name = "accepted",columnDefinition = "TINYINT(1)")
 	private Boolean accepted = Boolean.FALSE;
+	
+	@Column(name = "accept_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date acceptDate;
+	
+	@Column(name = "accept_user")
+	private String acceptUsername;
 }
