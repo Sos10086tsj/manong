@@ -43,4 +43,15 @@ public @Getter @Setter class CelebrityTougao extends BaseEntity<Long>{
 	
 	@Column(name = "accepted" ,columnDefinition = "TINYINT(1)")
 	private Boolean accepted = Boolean.FALSE;
+	
+	@Column(name = "accept_date")
+	@DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+	private Date acceptDate;
+	
+	@Column(name = "accept_user")
+	private String acceptUsername;
+	
+	@Column(name = "published",columnDefinition="TINYINT(1)")
+	private Boolean published = Boolean.FALSE;
+	
 }

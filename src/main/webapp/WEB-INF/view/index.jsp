@@ -16,7 +16,7 @@
 </head>
 <body>
 	<manong:menu></manong:menu>
-	<div><iframe name="mainFrame" id="mainFrame" width="100%" height="100%"
+	<div><iframe name="mainFrame" id="mainFrame" width="100%" height="700px;"
 	 frameborder="0" scrolling="no" src="home"></iframe></div>
 </body>
 </html>

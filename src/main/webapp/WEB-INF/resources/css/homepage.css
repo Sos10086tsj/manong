@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+.float_left {float:left;}
+.float_right{ float:right;}
+.float_clear {clear: both}
+.title{font-family: "Microsoft YaHei";font-size:100%;}
+.title_item{font-family:Arial,Verdana,Sans-serif;font-size:90%;}
+.title_width{width:350px;}
+.title_margin{margin-top:10px;margin-left:20px;}
+.content_left {
+	float: left;
+	padding: 10px;
+	margin: 20px;
+	/*background: #666;*/
+	border: 5px solid #ccc;
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 40%;
+	height:80%;
+}
+.content_right {
+	float: left;
+	padding: 10px;
+	margin: 20px;
+	/*background: #666;*/
+	border: 5px solid #ccc;
+	voice-family: "\"}\"";
+	voice-family:inherit;
+	width: 40%;
+	height:80%;
+	}

@@ -67,4 +67,7 @@ public @Getter @Setter class ItTougao extends BaseEntity<Long>{
 	
 	@Column(name = "accept_user")
 	private String acceptUsername;
+	
+	@Column(name = "published",columnDefinition="TINYINT(1)")
+	private Boolean published = Boolean.FALSE;
 }

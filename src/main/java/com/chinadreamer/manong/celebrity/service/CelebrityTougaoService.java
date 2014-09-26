@@ -10,4 +10,5 @@ public interface CelebrityTougaoService {
 			String zhuanji,String resourceUrl);
 	public void recruitCelebrity(Long tougaoId);
 	public void cancelRecruitCelebrity(Long tougaoId);
+	public Page<CelebrityTougao> getAcceptedCelebrities(int pageNum, int pageSize);
 }

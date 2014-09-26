@@ -11,6 +11,10 @@
 							<h2><a href="${menuItem.url}" target="mainFrame">${menuItem.name}</a></h2>
 						</li>
 					</c:forEach>
+					<!-- 退出 -->
+					<li>
+						<h2><a href="/logout">退出</a></h2>
+					</li>
 				</ul>
 			</div>
 		</div>

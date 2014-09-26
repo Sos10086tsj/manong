@@ -67,4 +67,14 @@ public class CelebrityController {
 		model.addAttribute("tougao", tougao);
 		return "celebrity/tougao/detail";
 	}
+	
+	@RequestMapping(value = "acceptList", method = RequestMethod.GET)
+	public String acceptList(Model model,HttpServletRequest request){
+		String pageNumStr = request.getParameter("pageNum");
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
+		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
+		model.addAttribute("tougaoPage",this.celebrityTougaoService.getCelebrities(pageNum, pageSize));
+		return "celebrity/recruit";
+	}
 }
