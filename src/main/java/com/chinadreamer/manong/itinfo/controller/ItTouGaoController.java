@@ -23,7 +23,7 @@ public class ItTouGaoController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getItInfo(Model model){
-		model.addAttribute("info", "新闻");
+		model.addAttribute("infos", this.itTouGaoService.getAcceptedTougaos(0, 10));
 		return "itinfo/itinfo";
 	}
 	
@@ -67,7 +67,7 @@ public class ItTouGaoController {
 	
 	@RequestMapping(value = "showCreateForm",method = RequestMethod.GET)
 	public String showCreateForm(Model model){
-		return "itinfo/tougao/createTougao";
+		return "itinfo/tougao/create";
 	}
 	
 	@RequestMapping(value = "createTougao",method = RequestMethod.POST)
@@ -78,6 +78,12 @@ public class ItTouGaoController {
 		String type = request.getParameter("type");
 		String sourceUrl = request.getParameter("sourceUrl");
 		model.addAttribute("itTougao", this.itTouGaoService.saveItTougao(title, content, category, type, sourceUrl));
-		return "itinfo/tougao/tougaoDetail";
+		return "itinfo/tougao/detail";
+	}
+	
+	@RequestMapping(value = "showEditForm",method = RequestMethod.GET)
+	public String showEditForm(Model model,HttpServletRequest request,@RequestParam("id") Long tougaoId){
+		model.addAttribute("itTougao", this.itTouGaoService.findOne(tougaoId));
+		return "itinfo/tougao/edit";
 	}
 }

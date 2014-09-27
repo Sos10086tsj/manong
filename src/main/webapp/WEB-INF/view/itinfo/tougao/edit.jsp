@@ -8,12 +8,12 @@
 </head>
 <body>
 	<div>
-		<form action="/itinfo/createTougao" method="post">
-			标题<input name="title">
-			内容<input name="content">
-			类别<input name="category">
-			类型<input name="type">
-			url<input name="sourceUrl">
+		<form action="/itInfo/createTougao" method="post">
+			标题<input name="title" value="${itTougao.title}">
+			内容<input name="content" value="${itTougao.content}">
+			类别<input name="category" value="${itTougao.category}">
+			类型<input name="type" value="${itTougao.type}">
+			url<input name="sourceUrl" value="${itTougao.sourceUrl}">
 			<button type="submit">保存</button>
 		</form>
 	</div>

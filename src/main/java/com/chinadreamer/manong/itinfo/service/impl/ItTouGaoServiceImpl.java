@@ -74,4 +74,9 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
 		return new PageRequest(pageNum, pageSize);
 	}
+
+	@Override
+	public ItTougao findOne(Long tougaoId) {
+		return this.repository.findOne(tougaoId);
+	}
 }

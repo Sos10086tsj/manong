@@ -4,7 +4,7 @@
 .float_clear {clear: both}
 .title{font-family: "Microsoft YaHei";font-size:100%;}
 .title_item{font-family:Arial,Verdana,Sans-serif;font-size:90%;}
-.title_width{width:350px;}
+.title_width{width:300px;}
 .title_margin{margin-top:10px;margin-left:20px;}
 .content_left {
 	float: left;
@@ -28,3 +28,7 @@
 	width: 40%;
 	height:80%;
 	}
+.ellipsis{overflow:hidden;
+white-space:nowrap;
+text-overflow:ellipsis;
+-o-text-overflow:ellipsis;}

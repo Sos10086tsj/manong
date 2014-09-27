@@ -33,5 +33,9 @@ infoHelp = {
 				alert("保存失败！");
 			}
 		});
+	},
+	
+	jump2EditPage : function(id){
+		window.location.href = '/itInfo/showEditForm?id=' + id;
 	}
 };

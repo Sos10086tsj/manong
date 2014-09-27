@@ -16,7 +16,8 @@
 				<c:forEach items="${infos.content}" var="info">
 					<div class="title_margin">
 						<div>
-							<a class="title_item float_left ellipsis title_width" href="/itInfo/detail/${info.id}" target="mainFrame">${info.title}</a>
+							<a class="title_item float_left ellipsis title_width" href="/itInfo/detail/${info.id}"
+							 title = "${info.title}" target="mainFrame">${info.title}</a>
 						</div>
 						<div class="float_right title_item">
 							<fmt:formatDate value="${info.acceptDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
@@ -36,7 +37,8 @@
 				<c:forEach items="${celebrities.content}" var="celebrity">
 					<div class="title_margin">
 						<div>
-							<a class="title_item float_left ellipsis title_width" href="/celebrity/detail/${celebrity.id}" target="mainFrame">${celebrity.name}</a>
+							<a class="title_item float_left ellipsis title_width" href="/celebrity/detail/${celebrity.id}"
+							  title = "${celebrity.name}" target="mainFrame">${celebrity.name}</a>
 						</div>
 						<div class="float_right title_item">
 							<fmt:formatDate value="${celebrity.acceptDate}" pattern="yyyy-MM-dd HH:mm:ss"/>
