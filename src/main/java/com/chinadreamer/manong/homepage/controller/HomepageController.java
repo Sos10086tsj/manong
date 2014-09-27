@@ -19,7 +19,7 @@ public class HomepageController {
 	private CelebrityTougaoService celebrityTougaoService;
 	@RequestMapping(method = RequestMethod.GET)
 	public String getHomePage(Model model){
-		model.addAttribute("infos", this.itTouGaoService.getAcceptedTougaos(0, 20));
+		model.addAttribute("infos", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(0, 20));
 		model.addAttribute("celebrities", this.celebrityTougaoService.getAcceptedCelebrities(0, 20));
 		return "homepage/homepage";
 	}

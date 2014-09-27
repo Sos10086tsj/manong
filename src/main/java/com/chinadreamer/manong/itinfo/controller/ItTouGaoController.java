@@ -23,13 +23,17 @@ public class ItTouGaoController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String getItInfo(Model model){
-		model.addAttribute("infos", this.itTouGaoService.getAcceptedTougaos(0, 10));
+		model.addAttribute("infos", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(0, 10));
 		return "itinfo/itinfo";
 	}
 	
 	@RequestMapping(value = "list", method = RequestMethod.GET)
 	public String getItInfoListByType(Model model,HttpServletRequest request){
-		model.addAttribute("info", "新闻");
+		String pageNumStr = request.getParameter("pageNum");
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
+		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
+		model.addAttribute("tougaoPage", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(pageNum, pageSize));
 		return "itinfo/infolist";
 	}
 	
@@ -55,7 +59,7 @@ public class ItTouGaoController {
 		String pageSizeStr = request.getParameter("pageSize");
 		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
 		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
-		model.addAttribute("tougaoPage", this.itTouGaoService.getAcceptedTougaos(pageNum, pageSize));
+		model.addAttribute("tougaoPage", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(pageNum, pageSize));
 		return "itinfo/acceptInfos";
 	}
 	

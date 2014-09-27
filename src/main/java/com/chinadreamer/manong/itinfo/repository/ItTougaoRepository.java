@@ -8,7 +8,7 @@ import org.springframework.data.repository.PagingAndSortingRepository;
 import com.chinadreamer.manong.itinfo.entity.ItTougao;
 
 public interface ItTougaoRepository extends JpaRepository<ItTougao, Long>, PagingAndSortingRepository<ItTougao, Long>{
-	public Page<ItTougao> findByAcceptedFalse(Pageable pageable);
+	public Page<ItTougao> findByAcceptedFalseOrderByCreateDateDesc(Pageable pageable);
 	public Page<ItTougao> findByAcceptedTrue(Pageable pageable);
-	public Page<ItTougao> findByAcceptedTrueOrderByAcceptDateAsc(Pageable pageable);
+	public Page<ItTougao> findByAcceptedTrueOrderByAcceptDateDesc(Pageable pageable);
 }

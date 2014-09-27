@@ -38,7 +38,7 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 
 	@Override
 	public Page<ItTougao> getNewTougaos(int pageNum, int pageSize) {
-		return this.repository.findByAcceptedFalse(this.generatePageable(pageNum, pageSize));
+		return this.repository.findByAcceptedFalseOrderByCreateDateDesc(this.generatePageable(pageNum, pageSize));
 	}
 
 	@Override
@@ -61,13 +61,13 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 
 	@Override
 	public Page<ItTougao> getAcceptedTougaos(int pageNum, int pageSize) {
-		return this.repository.findByAcceptedTrue(this.generatePageable(pageNum, pageSize));
+		return this.repository.findByAcceptedTrueOrderByAcceptDateDesc(this.generatePageable(pageNum, pageSize));
 	}
 
 	@Override
 	public Page<ItTougao> getAcceptTougaosOrderByAcceptDate(int pageNum,
 			int pageSize) {
-		return this.repository.findByAcceptedTrueOrderByAcceptDateAsc(this.generatePageable(pageNum, pageSize));
+		return this.repository.findByAcceptedTrueOrderByAcceptDateDesc(this.generatePageable(pageNum, pageSize));
 	}
 
 	private Pageable generatePageable(int pageNum, int pageSize){

@@ -10,7 +10,7 @@
 		<div class="content_left">
 			<div>
 				<div class="float_left title">最新资讯</div>
-				<div class="float_right title"><a href="/itInfo/accept/infos" target="mainFrame">更多</a></div>
+				<div class="float_right title"><a href="/itInfo/list" target="mainFrame">更多</a></div>
 			</div>
 			<div class="float_clear"></div>
 			<div >
