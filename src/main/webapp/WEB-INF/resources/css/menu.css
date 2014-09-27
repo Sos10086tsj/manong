@@ -27,3 +27,5 @@ a:link,a:visited{text-decoration:none}
 .navigation-down .menu-1 dd a{color:#fff;font:normal 14px/30px "microsoft yahei"}
 .navigation-down .menu-1 dd a:hover{color:#60aff6}
 .navigation-down .menu-2 dd a,.navigation-down .menu-3 dd a{color:#fff;font:normal 16px "microsoft yahei"}
+
+.menu_item{float:left;}
