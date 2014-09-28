@@ -16,19 +16,28 @@
 			<thead>
 				<tr>
 					<th width="5%">#</th>
-					<th width="60%">标题</th>
+					<th width="50%">标题</th>
 					<th width="25%">录用时间</th>
-					<th width="10%">操作</th>
+					<th width="12%">状态</th>
+					<th width="8%">操作</th>
 			
 			</tr>
 			</thead>
-			<tbody id="info_list_table_body_id">
+			<tbody >
 			<c:forEach items="${tougaoPage.content }" var="tougao" varStatus="index">
 				<tr>
 					<td>${index.index + 1}</td>
 					<td ><a class="ellipsis title_width infolist_td" href="/itInfo/detail/${tougao.id}"
 							 title="${tougao.title}" target="mainFrame">${tougao.title}</a></td>
 					<td style="text-align:center"><fmt:formatDate value="${tougao.acceptDate}" pattern="yyyy-MM-dd HH:mm:ss"/></td>
+					<c:choose>
+						<c:when test="${tougao.accepted }">
+							<td style="text-align:center">已录用</td>
+						</c:when>
+						<c:otherwise>
+							<td style="text-align:center">未录用</td>
+						</c:otherwise>
+					</c:choose>
 					<td style="text-align:center"><a href="javascript:onClick=infoHelp.jump2EditPage(${tougao.id})"><img class="edit_size" src="../resources/images/edit.png"></a></td>
 				</tr>
 			</c:forEach>

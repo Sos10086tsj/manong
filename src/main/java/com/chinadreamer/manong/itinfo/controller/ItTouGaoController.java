@@ -27,7 +27,7 @@ public class ItTouGaoController {
 		String pageSizeStr = request.getParameter("pageSize");
 		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
 		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
-		model.addAttribute("infos", this.itTouGaoService.getTougaos(pageNum, pageSize));
+		model.addAttribute("infos", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(pageNum, pageSize));
 		return "itinfo/itinfo";
 	}
 	
@@ -37,7 +37,7 @@ public class ItTouGaoController {
 		String pageSizeStr = request.getParameter("pageSize");
 		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
 		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
-		model.addAttribute("tougaoPage", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(pageNum, pageSize));
+		model.addAttribute("tougaoPage", this.itTouGaoService.getTougaos(pageNum, pageSize));
 		return "itinfo/infolist";
 	}
 	

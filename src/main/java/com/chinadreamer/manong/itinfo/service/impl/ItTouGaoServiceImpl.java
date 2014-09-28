@@ -8,7 +8,7 @@ import javax.persistence.PersistenceContext;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import com.chinadreamer.manong.common.ShiroUtils;
@@ -70,7 +70,7 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 		return this.repository.findByAcceptedTrueOrderByAcceptDateDesc(this.generatePageable(pageNum, pageSize));
 	}
 
-	private Pageable generatePageable(int pageNum, int pageSize){
+	private PageRequest generatePageable(int pageNum, int pageSize){
 		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
 		return new PageRequest(pageNum, pageSize);
 	}
@@ -82,6 +82,8 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 
 	@Override
 	public Page<ItTougao> getTougaos(int pageNum, int pageSize) {
-		return this.repository.findAll(this.generatePageable(pageNum, pageSize));
+		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
+		PageRequest pageRequest = new PageRequest(pageNum, pageSize, Direction.DESC, "createDate");
+		return this.repository.findAll(pageRequest);
 	}
 }

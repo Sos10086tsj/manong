@@ -4,10 +4,29 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
 </head>
 <body>
-	<div>${itTougao.title }</div>
-	<div>${itTougao.content }</div>
+	<div>
+		<table border="1px solid #ccc;">
+			<thead>
+				<tr>
+					<th>【${itTougao.category.description}】</th>
+					<th>${itTougao.title}</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>类型</td>
+					<td>${itTougao.type.description}</td>
+					<td>原文网址</td>
+					<td>${itTougao.sourceUrl}</td>
+				</tr>
+				<tr>
+					<td>文章内容</td>
+					<td colspan="3">${itTougao.content}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
 </body>
 </html>
