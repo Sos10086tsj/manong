@@ -22,8 +22,12 @@ public class ItTouGaoController {
 	private ItTouGaoService itTouGaoService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String getItInfo(Model model){
-		model.addAttribute("infos", this.itTouGaoService.getAcceptTougaosOrderByAcceptDate(0, 10));
+	public String getItInfo(Model model,HttpServletRequest request){
+		String pageNumStr = request.getParameter("pageNum");
+		String pageSizeStr = request.getParameter("pageSize");
+		int pageNum = StringUtils.isEmpty(pageNumStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_NUM : Integer.valueOf(pageNumStr);
+		int pageSize = StringUtils.isEmpty(pageSizeStr) ? InfoConstant.DEFAULT_SEARCH_PAGE_SIZE : Integer.valueOf(pageSizeStr);
+		model.addAttribute("infos", this.itTouGaoService.getTougaos(pageNum, pageSize));
 		return "itinfo/itinfo";
 	}
 	
@@ -89,5 +93,11 @@ public class ItTouGaoController {
 	public String showEditForm(Model model,HttpServletRequest request,@RequestParam("id") Long tougaoId){
 		model.addAttribute("itTougao", this.itTouGaoService.findOne(tougaoId));
 		return "itinfo/tougao/edit";
+	}
+	
+	@RequestMapping(value = "detail/{id}",method = RequestMethod.GET)
+	public String detail(Model model, @PathVariable("id")Long id){
+		model.addAttribute("itTougao", this.itTouGaoService.findOne(id));
+		return "itinfo/tougao/detail";
 	}
 }

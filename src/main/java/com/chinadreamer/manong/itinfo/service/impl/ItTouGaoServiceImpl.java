@@ -79,4 +79,9 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 	public ItTougao findOne(Long tougaoId) {
 		return this.repository.findOne(tougaoId);
 	}
+
+	@Override
+	public Page<ItTougao> getTougaos(int pageNum, int pageSize) {
+		return this.repository.findAll(this.generatePageable(pageNum, pageSize));
+	}
 }

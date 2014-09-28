@@ -55,4 +55,6 @@ public interface ItTouGaoService {
 	public Page<ItTougao> getAcceptTougaosOrderByAcceptDate(int pageNum, int pageSize);
 	
 	public ItTougao findOne(Long tougaoId);
+	
+	public Page<ItTougao> getTougaos(int pageNum, int pageSize);
 }
