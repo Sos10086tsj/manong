@@ -126,3 +126,18 @@
     -webkit-border-radius: 0 0 6px 6px
     border-radius: 0 0 6px 6px
 }
+
+.create{text-align:center;width:800px;height:600px;margin: 0 auto;}
+.create select{background-color:#ddd;width:80px;}
+.create input.borderInput {
+    background-image: url(../input-border.gif);;
+    background-repeat: no-repeat;
+    background-position: left top;
+    border:1px solid #d5dee9;
+    padding:3px;
+}
+.create .title_label{width:50px;margin:20px 0 0 75px;}
+.create .title_input{width:600px;margin:20px 75px 0 0;}
+.create .category_label{width:50px;}
+.create .url_input{width:300px;}
+.create .content{width:650px;height:400px;margin-left:75px;}
