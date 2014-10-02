@@ -6,6 +6,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="../resources/css/login.css" />
 <title>码农——登录</title>
+
+<script language="JavaScript"> 
+	if (window != top) 
+	top.location.href = location.href; 
+</script>
+
 </head>
 <body class="body">
 	<div class="main">

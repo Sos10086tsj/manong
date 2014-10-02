@@ -1,6 +1,9 @@
 package com.chinadreamer.manong.itinfo.service.impl;
 
+import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
+import java.util.TimeZone;
 
 import javax.annotation.Resource;
 import javax.persistence.EntityManager;
@@ -105,5 +108,16 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 	@Override
 	public void delete(Long id) {
 		this.repository.delete(id);
+	}
+
+	@Override
+	public void cleanInfo() {
+		Calendar calendar = Calendar.getInstance(TimeZone.getDefault());
+		calendar.clear(Calendar.HOUR);
+		calendar.clear(Calendar.MINUTE);
+		calendar.clear(Calendar.SECOND);
+		calendar.add(Calendar.DAY_OF_MONTH, -30);
+		List<ItTougao> tougaos = this.repository.findByAcceptedFalseAndCreateDateBefore(calendar.getTime());
+		this.repository.delete(tougaos);
 	}
 }
