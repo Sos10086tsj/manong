@@ -61,6 +61,9 @@
 <script>
 	$('#create_tougao_form').validationEngine(); 
 	 KindEditor.ready(function(K) {
-                window.editor = K.create('#content');
-        });
+		window.editor = K.create('#content',{
+			allowFileManager : true ,
+			uploadJson: '/kindeditor/upload'
+		});
+     });
 </script>
