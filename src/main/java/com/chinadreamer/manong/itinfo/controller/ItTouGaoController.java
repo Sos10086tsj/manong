@@ -122,6 +122,6 @@ public class ItTouGaoController {
 	@RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
 	public String delete(Model model, @PathVariable("id")Long id){
 		this.itTouGaoService.delete(id);
-		return "itinfo/infolist";
+		return "redirect:/itInfo/list";
 	}
 }
