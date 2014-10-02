@@ -57,4 +57,7 @@ public interface ItTouGaoService {
 	public ItTougao findOne(Long tougaoId);
 	
 	public Page<ItTougao> getTougaos(int pageNum, int pageSize);
+	
+	public ItTougao updateItTougao(Long id, String title ,String content ,String category ,String type,String sourceUrl);
+	public void delete(Long id);
 }

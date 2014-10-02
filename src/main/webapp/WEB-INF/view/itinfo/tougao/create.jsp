@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript" src="../../plugins/jquery-2.1.1.min.js"></script>
@@ -27,9 +28,9 @@
 				<div class="float_left category_label">分类</div>
 				<div class="float_left">
 					<select class="select" name="category">
-						<option value="INFO">资讯</option>
-						<option value="MANAGE">经验管理</option>
-						<option value="TECHNIC">技术分享</option>
+						<c:forEach items="${categories }" var="cat">
+							<option value="${cat.category }">${cat.description}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -37,9 +38,9 @@
 				<div class="float_left category_label" style="margin-left:10px;">类型</div>
 				<div class="float_left">
 					<select class="select" name="type">
-						<option value="ORIGIN">原创</option>
-						<option value="REPRINT">转载</option>
-						<option value="TRANSLATE">翻译</option>
+						<c:forEach items="${types }" var="type">
+							<option value="${type.type }">${type.description}</option>
+						</c:forEach>
 					</select>
 				</div>
 			</div>
@@ -53,7 +54,7 @@
 			<textarea class="content" name="content" id="content" placeholder="请输入文章内容"></textarea>
 		</div>
 		<div style="margin-top:10px;">
-			<button>保存</button>
+			<button class="submit_btn submit_btn_white">保存</button>
 		</div>
 	</form>
 </div>

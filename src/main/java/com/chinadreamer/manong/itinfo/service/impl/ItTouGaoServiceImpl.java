@@ -10,8 +10,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import com.chinadreamer.manong.common.ShiroUtils;
+import com.chinadreamer.manong.itinfo.constant.InfoCategory;
+import com.chinadreamer.manong.itinfo.constant.InfoType;
 import com.chinadreamer.manong.itinfo.entity.ItTougao;
 import com.chinadreamer.manong.itinfo.repository.ItTougaoRepository;
 import com.chinadreamer.manong.itinfo.service.ItTouGaoService;
@@ -85,5 +88,22 @@ public class ItTouGaoServiceImpl implements ItTouGaoService{
 		pageNum = (pageNum > 0 ? pageNum - 1 : pageNum);
 		PageRequest pageRequest = new PageRequest(pageNum, pageSize, Direction.DESC, "createDate");
 		return this.repository.findAll(pageRequest);
+	}
+
+	@Override
+	public ItTougao updateItTougao(Long id, String title, String content,
+			String category, String type, String sourceUrl) {
+		ItTougao tougao = this.repository.findOne(id);
+		tougao.setTitle(title);
+		tougao.setCategory(InfoCategory.getInfoCategory(category));
+		tougao.setType(InfoType.getInfoType(type));
+		tougao.setSourceUrl(StringUtils.isEmpty(sourceUrl) ? "" : sourceUrl);
+		tougao.setContent(content);
+		return this.repository.save(tougao);
+	}
+
+	@Override
+	public void delete(Long id) {
+		this.repository.delete(id);
 	}
 }

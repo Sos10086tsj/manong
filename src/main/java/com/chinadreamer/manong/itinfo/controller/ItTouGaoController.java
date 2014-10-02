@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.chinadreamer.manong.itinfo.constant.InfoCategory;
 import com.chinadreamer.manong.itinfo.constant.InfoConstant;
+import com.chinadreamer.manong.itinfo.constant.InfoType;
 import com.chinadreamer.manong.itinfo.service.ItTouGaoService;
 
 @Controller
@@ -75,6 +77,8 @@ public class ItTouGaoController {
 	
 	@RequestMapping(value = "showCreateForm",method = RequestMethod.GET)
 	public String showCreateForm(Model model){
+		model.addAttribute("categories", InfoCategory.values());
+		model.addAttribute("types", InfoType.values());
 		return "itinfo/tougao/create";
 	}
 	
@@ -91,13 +95,33 @@ public class ItTouGaoController {
 	
 	@RequestMapping(value = "showEditForm",method = RequestMethod.GET)
 	public String showEditForm(Model model,HttpServletRequest request,@RequestParam("id") Long tougaoId){
+		model.addAttribute("categories", InfoCategory.values());
+		model.addAttribute("types", InfoType.values());
 		model.addAttribute("itTougao", this.itTouGaoService.findOne(tougaoId));
 		return "itinfo/tougao/edit";
+	}
+	
+	@RequestMapping(value = "updateTougao",method = RequestMethod.POST)
+	public String updateTougao(Model model,HttpServletRequest request){
+		String title = request.getParameter("title");
+		String content = request.getParameter("content");
+		String category = request.getParameter("category");
+		String type = request.getParameter("type");
+		String sourceUrl = request.getParameter("sourceUrl");
+		Long id = Long.parseLong(request.getParameter("id"));
+		model.addAttribute("itTougao", this.itTouGaoService.updateItTougao(id, title, content, category, type, sourceUrl));
+		return "itinfo/tougao/detail";
 	}
 	
 	@RequestMapping(value = "detail/{id}",method = RequestMethod.GET)
 	public String detail(Model model, @PathVariable("id")Long id){
 		model.addAttribute("itTougao", this.itTouGaoService.findOne(id));
 		return "itinfo/tougao/detail";
+	}
+	
+	@RequestMapping(value = "delete/{id}",method = RequestMethod.GET)
+	public String delete(Model model, @PathVariable("id")Long id){
+		this.itTouGaoService.delete(id);
+		return "itinfo/infolist";
 	}
 }
